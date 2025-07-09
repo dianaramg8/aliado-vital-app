@@ -3,15 +3,40 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <>
+      <Toaster
+        position="top-center" // ✅ CENTRADA
+        toastOptions={{
+          duration: 3500,
+          style: {
+            background: '#ffffff',
+            color: '#111827',
+            padding: '20px 24px',
+            borderRadius: '16px',
+            fontSize: '18px',
+            fontWeight: '600',
+            boxShadow: '0 8px 30px rgba(0, 0, 0, 0.2)'
+          },
+          success: {
+            icon: '🎉'
+          },
+          error: {
+            style: {
+              background: '#ffe4e6',
+              color: '#b91c1c'
+            },
+            icon: '🚫'
+          }
+        }}
+      />
+      <App />
+    </>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
